@@ -1,0 +1,85 @@
+<head>
+  <title>meteor-chat</title>
+</head>
+
+<body>
+    {{> header}}
+    {{> container}}
+</body>
+
+<template name="header">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Meteor Chat</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+            </ul>
+          </div><!--/.nav-collapse -->
+          {{> signin}}
+        </div>
+      </div>
+    </div>
+</template>
+
+<template name="signin">
+    {{#if signined_name}}
+    <p class="navbar-text pull-right">Signed in as {{ signined_name }}</p>
+    {{/if}}
+
+    {{#unless signined_name}}
+    <form class="navbar-form pull-right">
+        <input type="text" class="span3" placeholder="Your name" id="name">
+        <button type="button" class="btn">Sign in</button>
+    </form>
+    {{/unless}}
+
+</template>
+
+<template name="container">
+    <div class="container">
+
+      {{> herounit}}
+
+      {{> content}}
+      <hr>
+
+      {{> footer}}
+
+    </div>
+</template>
+
+<template name="herounit">
+
+    <div class="hero-unit">
+    {{#if signined_name}}
+    <h3>Message:</h3>
+    <input type="text" class="span10" id="message">
+    {{/if}}
+
+    {{#unless signined_name}}
+    <h3>You need to sign in</h3>
+    {{/unless}}
+    </div>
+
+</template>
+
+<template name="content">
+      <div class="row">
+        {{#each messages}}
+        <div class="span12">
+        <h2>{{ name }}</h2>
+        <p>{{message}}</p>
+       </div>
+       {{/each}}
+      </div>
+</template>
+
+<template name="footer">
+</template>
+

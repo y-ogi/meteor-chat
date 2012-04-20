@@ -1,0 +1,12 @@
+Sample of Chat with Meteor
+
+デモ
+http://metechat.meteor.com/
+
+動かし方
+$ meteor add jquery
+$ meteor add bootstrap
+$ meteor 
+
+Bootstrapを使いたかったので以下を使わせて頂きました。
+https://github.com/yuroyoro/meteor
